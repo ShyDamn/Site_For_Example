@@ -1,0 +1,597 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <meta name="msapplication-TileColor" content="#da532c">
+  <meta name="theme-color" content="#ffffff">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>WebHub</title>
+
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="pages/icon/icon.png">
+<link rel="manifest" href="/site.webmanifest">
+<link rel="stylesheet" href="css/WebHub.css">
+
+<style>
+
+    loading {
+        border: 8px solid #AFAFAF;
+        border-radius: 50%;
+        border-top: 8px solid black;
+        width: 60px;
+        height: 60px;
+        animation: spin 3s linear infinite;
+    }
+    @keyframes spin {
+        0% { transform: rotate(0deg); }
+        100% { transform: rotate(360deg); }
+    }
+
+    #top {
+  width: 100%;
+  background: #2e3a44 url(pages/background/bg-1.jpg);
+  background-blend-mode: multiply;
+  background-size: cover;
+  text-align: center;
+ background-attachment: fixed;
+  color: #fff;
+}
+
+#overview {
+  float: left;
+  background-image: url(pages/background/bg-2.jpg);
+
+  background-blend-mode: multiply;
+  background-color: #403f40;
+  background-size: cover;
+  background-attachment: fixed;
+
+  padding: 100px 0;
+  width: 100%;
+  text-align: center;
+  color: #fff;
+}
+
+#price {
+  float: left;
+  background-image: url(pages/background/bg-3.jpg);
+  
+  background-blend-mode: multiply;
+  background-color: #403f40;
+  background-size: cover;
+  background-attachment: fixed;
+
+  padding: 100px 0;
+  width: 100%;
+  text-align: center;
+  color: #fff;
+}
+
+#dop {
+  float: left;
+  background-image: url(pages/background/bg-4.jpg);
+  
+  background-blend-mode: multiply;
+  background-color: #403f40;
+  background-size: cover;
+  background-attachment: fixed;
+
+  padding: 100px 0;
+  width: 100%;
+  text-align: center;
+  color: #fff;
+}
+
+.scale {
+    transition: 1s; 
+   }
+   .scale:hover {
+    transform: scale(1.2); 
+   }
+
+.dropbtn {
+    background-color: #000000;
+    color: white;
+    padding: 16px;
+    font-size: 16px;
+    border: none;
+}
+
+.dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #fafafa;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+}
+
+.dropdown-content a {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+}
+
+.dropdown-content a:hover {background-color: #ddd;}
+
+.dropdown:hover .dropdown-content {display: block;}
+
+.dropdown:hover .dropbtn {background-color: #808080;}
+
+
+
+</style>
+
+<style type="text/css">
+
+.tabs { width: 100%; padding: 0px; margin: 0 auto; }
+.tabs>input { display: none; }
+
+.tabs>div {
+    display: none;
+    padding: 20px;
+}
+
+   
+.tabs>label {
+    display: inline-block;
+    padding: 11px;
+    margin: 0 0px -1px 0;
+    text-align: center;
+    color: #666666;
+    border: 1px solid #000000;
+    background: #E0E0E0;
+    cursor: pointer;
+}
+.tabs>input:checked + label {
+    color: #000000;
+    border: 1px solid #000000;
+    border-bottom: 1px solid #000000;
+    background: #FFFFFF;
+}
+
+
+
+#tab_1:checked ~ #txt_1,
+#tab_2:checked ~ #txt_2,
+#tab_3:checked ~ #txt_3,
+#tab_4:checked ~ #txt_4,
+#tab_5:checked ~ #txt_5 { display: block; }
+
+.colortext{
+  color: #ddd;
+}
+
+.colortext1{
+  color: #fafafa;
+}
+
+.colortext2{
+  font-size: 2.5em;
+  color: #ffffff;
+}
+
+
+</style>
+<style type="text/css">
+
+  #stylized button {
+  float: left;
+  border-radius: 5px;
+  padding: 5px 9px;
+  font-size: 1.2em;
+  background-color: #e87e7e;
+  text-shadow: #454545 0 0 2px;
+  cursor: pointer;
+  color: white;
+  font-family: 'Roboto Slab', serif;
+}
+
+#stylized button:hover {
+  background-color: #c15443;
+}
+</style>
+
+
+</head>
+
+<body>
+<div class="loading"></div>
+  <script type="text/javascript">
+    var arrgetbtn=[];
+    arrgetbtn.push({"title":"VKontakte","icon":"fwidgethelp-vk","link":"https://vk.com/fandomdan","target":"_blank","color":"#FFFFFF","background":"#507299"});
+    arrgetbtn.push({"title":"Instagram","icon":"fwidgethelp-instagram","link":"https://www.instagram.com/shy.damn/","target":"_blank","color":"#FFFFFF","background":"rgb(255, 0, 102)"});
+    arrgetbtn.push({"title":"Facebook","icon":"fwidgethelp-facebook","link":"https://www.facebook.com/DanAsteria/","target":"_blank","color":"#FFFFFF","background":"#3B5998"});
+    arrgetbtn.push({"title":"Whatsapp","icon":"fwidgethelp-whatsapp","link":"https://wa.me/79515489740","target":"_blank","color":"#FFFFFF","background":"#5EC758"});
+     var WidGetButtonOptions = {
+      id:"994f90bbebc08952bd69b463d661cca5",
+      iconopen:"fwidgethelp-commenting-o",
+      maintitle:"Напишите нам!",
+      mainbackground:"#444444",
+      maincolor:"#eeeeee",
+      pulse:"widgethelp_pulse",
+      fasize:"2",
+      direction:"top",
+      position:"leftbottom",
+      arrbtn: arrgetbtn
+    };
+    (function() {
+      var script = document.createElement("script");
+      script.type = "text/javascript";
+      script.async = true;
+      script.src = "https://getbtn.com/widget/index.php?id="+WidGetButtonOptions.id;
+      document.getElementsByTagName("head")[0].appendChild(script);
+    })();</script>
+    
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script>
+    function slowScroll(id) {
+      $('html, body').animate({
+        scrollTop: $(id).offset().top
+      }, 500);
+    }
+
+    $(document).on("scroll", function () {
+      if($(window).scrollTop() === 0)
+        $("header").removeClass("fixed");
+      else
+        $("header").attr("class", "fixed");
+    });
+ 
+</script>
+
+  <header>
+     <div id="logo" onclick="slowScroll('#top')">
+  <span>Web</span>
+     </div>
+     <div id="logic" onclick="slowScroll('#top')">
+  <span>Hub</span>
+     </div>
+    <div id="about">
+      <a href="#" title="Возможности" onclick="slowScroll('#main')">Возможности</a>
+      <a href="#" onclick="slowScroll('#overview')" title="Преимущества">Преимущества</a>
+      <a href="#" onclick="slowScroll('#price')" title="Прайс">Цены</a>
+      <a href="#" onclick="slowScroll('#contacts')" title="Контакты">Контакты</a>
+<a href="#" onclick="slowScroll('#dop')" title="Документы">Документы</a>
+      <a href="#" onclick="slowScroll('#faq')" title="Ответы на вопросы">FAQ</a>
+    </div>
+  </header>
+
+  <div id="top">
+    <h1>Студия WEB-разработки</h1>
+    <br>
+    <h3>WebHub</h3>
+  </div>
+
+  <div id="main">
+    <div class="intro">
+      <h2>Наши услуги помогут вам!</h2>
+      <br>
+      <span>Вы будете на высоте.</span>
+    </div>
+    <div class="text">
+      <span>
+<p>
+Современные проблемы требуют современных решений. Вам требуется создать сайт своей компании или аккаунт в соцсетях? Вам требуется продвинуть уже созданные сайт и аккаунты? Для этого и следует выбирать наши услуги, потому что мы гарантируем:
+</p>
+<br>
+<p>
+<ul><li>Качественную работу.</li></ul>
+</p>
+<p>
+<ul><li>Низкую цену.</li></ul>
+</p>
+<p>
+<ul><li>Отзывчивость и открытость к обсуждению всех вопросов и проблем.</li></ul>
+</p>
+ </span>
+    </div>
+  </div>
+
+  <div id="overview">
+    <h2>Преимущества</h2>
+    <h4>с нами все проще</h4>
+
+    <div class="img">
+      <img src="pages/img/img-1.jpg" alt="" style="width:100%;height:auto;" oncontextmenu="return false;" />
+      <span>Создание, оформление и продвижение аккаунтов в соцсетях</span>
+    </div>
+    <div class="img">
+      <img src="pages/img/img-2.jpg" alt="" style="width:100%;height:auto;" oncontextmenu="return false;" />
+      <span>Создание сайтов</span>
+    </div>
+<div class="img">
+      <img src="pages/img/img-3.jpg" alt="" style="width:100%;height:auto;" oncontextmenu="return false;" />
+      <span>Обработка фотографий</span>
+    </div>
+<div class="img">
+      <img src="pages/img/img-4.jpg" alt="" style="width:100%;height:auto;" oncontextmenu="return false;" /> 
+      <span>Создание макетов сайтов</span>
+    </div>
+  </div>
+
+  <div id="main">
+    <div class="intro">
+      <h2>Успех – это то, что приходит после того, как вы прекращаете укорять себя.</h2>
+      <br>
+      <span><i> -Луи Галарза</i></span>
+    </div>
+    <div class="text">
+      <span>
+ </span>
+    </div>
+  </div>
+
+<div id="price"> 
+
+<h2>Цены</h2>
+<br>
+
+<div id=pricetext>
+ 
+<div class="tabs">
+    <input type="radio" name="inset" value="" id="tab_1" checked>
+    <label for="tab_1">Создание сайта</label>
+
+    <input type="radio" name="inset" value="" id="tab_2">
+    <label for="tab_2">Обслуживание и поддержка</label>
+
+    <input type="radio" name="inset" value="" id="tab_3">
+    <label for="tab_3">СЕО-продвижение, реклама сайта</label>
+
+    <input type="radio" name="inset" value="" id="tab_4">
+    <label for="tab_4">SMM-маркетинг</label>
+
+    <input type="radio" name="inset" value="" id="tab_5">
+    <label for="tab_5">Обработка фотографий в Photoshop CS6</label>
+
+    
+    <div id="txt_1">
+    
+<p class="colortext2"><b>Квиз-сайт</b></p>
+
+<p class="colortext1"> Это новый вид геймифицированного лендинга, повышающий вовлеченность посетителей сайта за счет опроса. Как правило, это одноэкранный сайт без какого-либо дизайна в общих корпоративных цветах с внедренным опросником.</p>
+<p class="colortext">  Цена: <i>5000 рублей</i> </p>
+<br>
+
+<p class="colortext2"><b>Корпоративный сайт</b></p>
+<p class="colortext1">Это полноценный веб-ресурс, играющий роль интернет-представительства компании. На нем может размещаться подробная информация о работе и товарах (не более 20-50 позиций).</p>
+<p  class="colortext">  Цена: <i>15000 рублей</i><p>
+<br>
+<p class="colortext2"><b>Корпоративный блог</b></p>
+<p class="colortext1">Это веб-ресурс и инструмент пиара, позволяющий выстроить доверительную коммуникацию с аудиторией (покупателями, сотрудниками), повысить лояльность и улучшить деловой имидж.</p>
+<p  class="colortext">Цена: <i>18000 рублей</i> </p>
+<br>
+<p class="colortext2"><b>Интернет-магазин</b></p>
+<p class="colortext1"> Это сайт, который предоставляет свои товары и услуги для покупки в режиме онлайн.</p>
+<p  class="colortext">  Цена: <i>30000 рублей</i> </p>
+<br>
+<p class="colortext2"><b>Сайт-визитка</b></p>
+<p class="colortext1">Это небольшой сайт без сложных программных элементов, предоставляющий: 
+<ul class="colortext1">
+<li>общую информацию о компании; </li>
+<li>основные услуги и товары (без подробного каталога продукции); </li>
+<li>контактные данные. </li>
+</ul> </p>
+<p  class="colortext"> Цена: <i>13000 рублей</i> </p>
+<br>
+<p class="colortext2"><b>Сайт "под ключ"</b></p>
+<p class="colortext1">Это поэтапная разработка ресурса с нуля. Веб-студия только согласует результаты работ и предоставляет полностью функциональный сайт. Вовлечение клиента в процесс – минимально.</p>
+<p  class="colortext"> Цена: <i>25000 рублей</i> </p>
+<br>
+<p class="colortext2"><b>Создание логотипа, разработка фирменного стиля</b></p>
+<p class="colortext1">Фирменный стиль – это композиция графических и словесных элементов, составляющая узнаваемый образ компании.</p>
+<p  class="colortext"> Цена: <i>5000 рублей</i> </p>
+<br>
+<p class="colortext2"><b>Веб-дизайн</b></p>
+<p class="colortext1">Это разновидность дизайна, которая отвечает за проектирование сайта и его компонентов: навигации, функций, графических элементов и т.д.</p>
+<p  class="colortext">   Цена: <i>13000 рублей</i>   </p> 
+<br>
+<p class="colortext2"><b>Редизайн сайта</b></p>
+<p class="colortext1">Это обновaление внешнего вида сайта с целью повышения его привлекательности и юзабилити.</p>
+<p  class="colortext"> Цена: <i>2500 рублей</i> </p>
+<br>
+<p class="colortext2"><b>Разработка адаптивного дизайна сайта</b></p>
+<p class="colortext1">Это динамический дизайн, который подстраивается под устройство пользователя (планшет, смартфон и т.д.). Таким образом, любой веб-ресурс можно просматривать в наиболее удобном формате, вне зависимости от разрешения и размера экрана.</p>
+<p  class="colortext" > Цена: <i>13000 рублей</i> </p>
+<br>
+<p class="colortext2"><b>Разработка мобильной версии сайта</b></p>
+<p class="colortext1">Это отдельная версия сайта, которая дублирует основную, но является урезанной для комфортного просмотра со смартфонов с помощью мобильного браузера. В мобильной версии оставляют только основной функционал сайта, а весь второстепенный убирают.</p>
+<p  class="colortext"> Цена: <i>8000 рублей</i> </p>
+    </div>
+    <div id="txt_2">
+<p class="colortext2"><b>Починка сайта</b></p>
+<p class="colortext1">Услуги по ремонту – профессиональная техническая помощь от IT-специалистов по налаживанию работы вашего веб-ресурса.</p>
+<p class="colortext" > Цена: <i>1000 рублей</i> </p>
+<br>
+<p class="colortext2"><b>Копирайтинг</b></p>
+<p class="colortext1">Это создание рекламного, уникального и легкого для восприятия текстового контента для размещения на сайте или в социальных сетях. Текст, как правило, содержит ключевые запросы для индексации поисковиками.</p>
+<p  class="colortext"> Цена за написание текста для главной страницы: <i>1000 рублей/1000 печатных знаков</i> </p>
+<p  class="colortext"> Цена за заполнение текстами прочих разделов сайта: <i>500 рублей/1000 печатных знаков</i> </p>
+<br>   
+<p class="colortext2"><b>Хостинг</b></p>
+<p class="colortext1">Хостинг – сервер, обеспечивающий размещение и постоянное подключение вашего сайта к глобальной сети.</p>
+<p  class="colortext"> Цена за стандартный тарифный план: <i>2000 рублей</i> </p>
+<br>  
+<p class="colortext2"><b>Домен</b></p>
+<p  class="colortext1">Домен - адрес (имя) сайта в сети Интернет, состоящее из набора символов и цифр.</p>
+<p class="colortext" > Цена за регистрацию или продление домена .рф, .ru: <i>1000 рублей</i></p>
+<p  class="colortext"> Цена за регистрацию или продление домена .com: <i>2000 рублей</i> </p>
+    </div>
+    <div id="txt_3">
+<p class="colortext2"><b>SEO-продвижение сайта</b></p>
+<p class="colortext1">Это планомерная техническая работа по модернизации контента и функционала сайта для поисковых роботов, которые двигают его в лидеры выдачи для пользователей.</p>
+<p  class="colortext"> Цена: <i>4000 рублей</i> </p>
+<br>
+<p class="colortext2"><b>Раскрутка сайта</b></p>
+<p class="colortext1">Это комплексный и планомерный интернет-маркетинг, нацеленный на рост прибыльности, охватов аудитории и других конкретных показателей успешности в цифровом пространстве.</p>
+<p class="colortext" >  Цена: <i>8000 рублей в месяц</i> </p>
+<br>
+<p class="colortext2"><b>Поисковая оптимизация сайта</b></p>
+<p class="colortext1">Это структурирование материалов и программного кода веб-ресурса с учетом работы поисковых алгоритмов, которые определяют его полезность для целевой аудитории.</p>
+<p class="colortext">Цена: <i>4000 рублей</i> </p>
+<br>
+<p class="colortext2"><b>Чат для сайта(бизнес-мессенджер_</b></p>
+<p class="colortext1">Это средство общения между пользователем и менеджерами по продажам (или администраторами сайта), позволяющее задавать вопросы и получать консультации в режиме реального времени непосредственно с сайта.</p>
+<p class="colortext"> Цена: <i>2000 рублей</i></p>
+<br>
+<p class="colortext2"><b>Таргетинговая реклама(ВКонтакте, Instagram)</b></p>
+<p class="colortext1">Это вид онлайн рекламы, в которой используются многопараметрические методы настройки показов с заданными параметрами целевой аудитории (география, пол, возраст, уровень дохода, интересы, история покупок и просмотров в браузере, другие поведенческие и демографические факторы). С помощью таргетинга рекламные объявления демонстрируются максимально заинтересованной аудитории из социальных сетей.</p>
+<p class="colortext"> Цена: <i>5000 рублей в месяц</i> + рекламный бюджет </p>
+<br>
+<p class="colortext2"><b>Контекстная реклама</b></p>
+<p class="colortext1">Это тип рекламы, при котором рекламное предложение в интернете показывается в соответствии с содержанием страницы или, основываясь на поисковых запросах пользователя. Главные черты: ненавязчивость и быстрый старт.</p>
+<p class="colortext"> Цена: <i>1500 рублей в месяц</i> + рекламный бюджет </p>
+    </div>
+    <div id="txt_4">
+<p class="colortext2"><b>Создание аккаунта в социальной сети ВКонтакте/Instagram</b></p>
+<p class="colortext"> Цена: <i>500 рублей за аккаунт</i> </p>
+<br>
+<p class="colortext2"><b>Создание фирменного стиля</b></p>
+<p class="colortext1">Фирменный стиль - это единый визуальный (логотип, оформление постов, меню и т.д.) и информационный образ вашей компании в соцсетях, нацеленный на повышение узнаваемости и выстраивание перспективных отношений с целевой аудиторией и продвижения.</p>
+<p class="colortext"> Цена: <i>5000 рублей за аккаунт</i> </p>
+<br>
+<p class="colortext2"><b>Ведение и продвижение группы ВКонтакте</b></p>
+<p class="colortext1">Группа ВКонтакте – представляет собой «клуб» по интересам или сообщество в крупнейшей российской социальности сети, применяется как эффективное средство роста продаж и усиления лояльности целевой аудитории.</p>
+<p class="colortext"> Цена: <i>8000 рублей в месяц</i></p>
+<br>
+<p class="colortext2"><b>Ведение и продвижение аккаунта в Instagram</b></p>
+<p class="colortext1">Инстаграм – одна из самых успешных соцсетей с огромной аудиторией, поэтому сегодня аккаунт в Инстаграме по праву считается инновационным инструментом развития бизнеса.</p>
+<p  class="colortext"> Цена: <i>8000 рублей в месяц</i> </p>
+<br>
+<p class="colortext2"><b>Таргетинговая реклама(реклама в соцсетях)</b></p>
+<p class="colortext1">Это вид онлайн рекламы, в которой используются многопараметрические методы настройки показов с заданными параметрами целевой аудитории (география, пол, возраст, уровень дохода, интересы, история покупок и просмотров в браузере, другие поведенческие и демографические факторы). С помощью таргетинга рекламные объявления демонстрируются максимально заинтересованной аудитории из социальных сетей.</p>
+<p class="colortext"> Цена: <i>5000 рублей в месяц</i> + рекламный бюджет </p>
+    </div>
+<div id="txt_5">
+<p class="colortext2"><b>Цветовая коррекция фото</b></p>
+<p class="colortext"> Цена: <i>100 рублей</i> </p>
+<br>  
+<p class="colortext2"><b>Художественная обработка</b></p>
+<p class="colortext"> Цена: <i>500 рублей</i> </p>
+<br>   
+<p class="colortext2"><b>Профессиональная обработка фото (с заменой фона, полной перерисовки света и теней)</b></p>
+<p class="colortext"> Цена: <i>2000 рублей</i> </p>  
+</div>
+</div>
+</div>
+</div>
+  
+<script>
+  function checkForm(form) {
+    var name = form.name.value;
+    var n = name.match(/^[A-Za-zА-Яа-я ]*[A-Za-zА-Яа-я ]+$/);
+    if (!n) {
+      alert("Имя введено неверно, пожалуйста исправьте ошибку");
+      return false;
+    }
+
+    var email = form.email.value;
+    var m = email.match(/^[A-Za-z0-9][A-Za-z0-9\._-]*[A-Za-z0-9_]*@([A-Za-z0-9]+([A-Za-z0-9-]*[A-Za-z0-9]+)*\.)+[A-Za-z]+$/);
+    if (!m) {
+      alert("E-mail введен неверно, пожалуйста исправьте ошибку");
+      return false;
+    }
+    return true;
+  }
+</script>
+
+
+  <div id="contacts">
+    <div id="stylized">
+    <center><h5>Обратная связь</h5></center>
+    <form id="form1" id="form1" action="mail.php" method="POST" onSubmit="return checkForm(this)">
+      <label for="name">Имя <span>*</span></label><br>
+      <input type="text" maxlength="30" placeholder="Введите имя" name="name" id="name"><br>
+      <label for="email">Ваша почта <span>*</span></label><br>
+			<input type="email" maxlength="30" placeholder="Введите email" name="email" id="email"><br>
+			<label for="message">Сообщение <span>*</span></label><br>
+			<textarea placeholder="Введите ваше сообщение" name="message" id="message"></textarea><br>
+			<button type="submit" value="Send">Отправить</button>
+  
+    </form>
+  </div>
+  </div>
+
+
+  <div id="dop">
+    <h2>Документы</h2>
+    <h4>Портфолио студии</h4>
+ <div class="img">
+<a href="https://sun9-41.userapi.com/c856120/v856120358/2258eb/Vi2xhqq5Rac.jpg"> <img src="pages/documents/doc-1.jpg" alt="" style="width:100%;height:auto;" oncontextmenu="return false;" /> </a>
+</div>
+<div class="img">
+<a href="https://sun9-39.userapi.com/c856120/v856120358/2258f5/mgrXIqe7qj0.jpg" target="_blank"> <img src="pages/documents/doc-2.jpg" alt="" style="width:100%;height:auto;" oncontextmenu="return false;" /> </a>
+</div>
+<div class="img">
+<a href="https://sun9-21.userapi.com/c856120/v856120358/22591d/75UYoLTuSSI.jpg" target="_blank"> <img src="pages/documents/doc-3.jpg" alt="" style="width:100%;height:auto;" oncontextmenu="return false;" /> </a>
+ </div>
+<div class="img">
+<a href="https://sun9-53.userapi.com/c856120/v856120358/225913/NVUPg0GI79Q.jpg"> <img src="pages/documents/doc-4.jpg" alt="" style="width:100%;height:auto;"> </a>
+</div>
+<div class="img">
+<a href="https://sun9-40.userapi.com/c856120/v856120358/225909/PBJrRwsQiG8.jpg" target="_blank"> <img src="pages/documents/doc-5.jpg" alt="" style="width:100%;height:auto;" oncontextmenu="return false;" /> </a>
+ </div>
+<div class="img">
+<a href="https://sun9-40.userapi.com/c856120/v856120358/2258ff/I3swpp5Kz7Q.jpg" target="_blank"> <img src="pages/documents/doc-6.jpg" alt="" style="width:100%;height:auto;" > </a>
+ </div></div>
+</div>
+  
+<hr>
+  <div id="faq">
+    <div>
+      <span class="title">Оплата</span><br><br>
+      <span class="heading">Как будет проходит оплата?</span><br><br>
+      <p>Действует способ безналичной оплаты: </p>
+      <p>
+        <ul>
+          <li>Сбербанк.Online (перевод)</li>
+          <li>Тинькофф (перевод)</li>
+          <li>Qiwi (перевод)</li>
+        </ul>
+      </p>
+
+      </div>
+    <div>
+      <span class="title">Информация</span>
+<br> <br>
+      <span class="heading">Что входит в услуги сервиса</span>
+<br> <br>
+<span>
+      <p>Наша  студия ориентируется на оказании услуг в сфере: </p> 
+      <p>
+        <ul>
+          <li>Cоздания сайта (любого вида и строения),</li>
+          <li>Ведением (продвежением) аккаунтов в социальных сетях,</li>
+          <li>Обработкой фотографии (PhotoShop) на заказ.</li>
+        </ul>
+      </p>
+</span>
+<p><font size=2><i>Сроки выполнения заказов обговариваются при личном обсуждении всех вопросов</i></font><font color="red">*</font></p>
+      </div>
+    
+<div>
+      <span class="title">Гарантии</span><br><br>
+      <span class="heading">Предоплата 50%, остальное - при получении готовой работы</span>
+
+      <script>
+        $('.nav-toggle').on('click', function(){
+          $('#menu').toggleClass('active');
+        });
+        </script>
+
+
+</body>
+
+</html>
